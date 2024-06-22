@@ -134,11 +134,10 @@ public class DetailActivity extends AppCompatActivity {
 
         Intent intent =new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        String mytitle=title+Html.fromHtml("<br>")+description+Html.fromHtml("<br>" +
-                "<b>اشتراک گذاری شده از  برنامه کاتالوگ محصولات پگاه </b>");
+        String mytitle=description.toString();
+        Toast.makeText(this, mytitle, Toast.LENGTH_SHORT).show();
         intent.putExtra(Intent.EXTRA_TEXT,mytitle);
-
-        startActivity(Intent.createChooser(intent,"اشتراک گذاری ار طریق..."));
+        startActivity(Intent.createChooser(intent,""));
 
     }
 

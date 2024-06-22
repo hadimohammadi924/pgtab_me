@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import android.text.Html;
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
     Toolbar toolbar;
     List<Fragment> fragments;
+    String url;
     String[] title = new String[]{"همه", "شیر پاستوریزه ساده", "شیر استریل 1/5لیتری", "شیر200ساده", "شیر استریل طعم دار", "انواع خامه", "کره و روغن", "ماست موسیر", "ماست همزده", "ماست معمولی", "پنیر یو اف", "انواع پنیر", "دوغ نایلونی", "دوغ 1/5 لیتری", "سایر انواع دوغ", "ابمیوه200", "آبمیوه 1لیتری", "محصولات پودری", "کشک و سایر محصولات لبنی", "محصولات غیر لبنی"};
 
 
@@ -72,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
          tabLayout = findViewById(R.id.tabLayout);
         initViewPager();
             setupNavMenu();
+            url="http://195.248.241.10:84/katalog.apk";
         } else {
             Toast.makeText(this, "اتصال به اینترنت برقرار نیست", Toast.LENGTH_SHORT).show();
             Dialog dialog = new Dialog(this);
@@ -109,9 +113,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "در ورژن بعدی فعال خواهد شد", Toast.LENGTH_SHORT).show();
                     drawerLayout.closeDrawers();
                 } else if (id == R.id.item_update) {
-                    Toast.makeText(MainActivity.this, "در ورژن بعدی فعال خواهد شد", Toast.LENGTH_SHORT).show();
-
-                } else if (id == R.id.item_update) {
+                    Intent i=new Intent (Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    startActivity(i);
                     Toast.makeText(MainActivity.this, "در ورژن بعدی فعال خواهد شد", Toast.LENGTH_SHORT).show();
 
                 } else if (id == R.id.item_fav) {
