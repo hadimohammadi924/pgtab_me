@@ -15,7 +15,8 @@ public class APIClient {
     private  static Retrofit retrofit =null;
 
   //  private static  String BASE_URL="http://http://195.248.241.10:83/home/";
-    private static final String BASE_URL = "http://195.248.241.10:83/home/";
+  //  private static final String BASE_URL = "http://195.248.241.10:83/home/";
+    private static final String BASE_URL = "http://178.239.151.209:84/home/";
 
 
     public  static  Retrofit getClient(){
